@@ -21,7 +21,7 @@
 
 ```
 ╔══════════════════════════════════════════════════════════════════════╗
-║   DETECT  ·  PROTECT  ·  EXPLAIN  ·  WARN  ·  DEFEND  ·  REPORT   ║
+║   DETECT  ·  PROTECT  ·  EXPLAIN  ·  WARN  ·  DEFEND  ·  REPORT      ║
 ╚══════════════════════════════════════════════════════════════════════╝
 ```
 
@@ -45,48 +45,48 @@ Built for security researchers, data scientists, and privacy engineers who need 
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║                   PRIVACY INTELLIGENCE ENGINE PIPELINE                      ║
+║                   PRIVACY INTELLIGENCE ENGINE PIPELINE                       ║
 ╠══════════════════════════════════════════════════════════════════════════════╣
 ║                                                                              ║
 ║  [ DATA INGESTION ]                                                          ║
-║  ┌─────────────────────────────────────────────────────────────────┐       ║
-║  │  CSV Input  →  Auto Quasi-Identifier Detection  →  Validation   │       ║
-║  └──────────────────────────┬──────────────────────────────────────┘       ║
+║  ┌─────────────────────────────────────────────────────────────────┐         ║
+║  │  CSV Input  →  Auto Quasi-Identifier Detection  →  Validation   │         ║
+║  └──────────────────────────┬──────────────────────────────────────┘         ║
 ║                              ▼                                               ║
 ║  [ FORMAL PRIVACY MODELS ]                                                   ║
-║  ┌─────────────┐   ┌─────────────┐   ┌─────────────────────────┐          ║
-║  │ k-Anonymity │   │ l-Diversity │   │ t-Closeness             │          ║
-║  │ Violation   │   │ Sensitive   │   │ Distribution Distance   │          ║
-║  │ Detection   │   │ Attr Check  │   │ Analysis                │          ║
-║  └──────┬──────┘   └──────┬──────┘   └───────────┬─────────────┘          ║
-║         └────────────────┬┴────────────────────────┘                        ║
-║                           ▼                                                  ║
+║  ┌─────────────┐   ┌─────────────┐   ┌─────────────────────────┐             ║
+║  │ k-Anonymity │   │ l-Diversity │   │ t-Closeness             │             ║
+║  │ Violation   │   │ Sensitive   │   │ Distribution Distance   │             ║
+║  │ Detection   │   │ Attr Check  │   │ Analysis                │             ║
+║  └──────┬──────┘   └──────┬──────┘   └───────────┬─────────────┘             ║
+║         └────────────────┬┴──────────────────────┘                           ║
+║                          ▼                                                   ║
 ║  [ RISK SCORING LAYER ]                                                      ║
-║  ┌────────────────────────────────────────────────────────────────┐        ║
-║  │  Weighted QI Scoring  →  Adaptive Risk Score  →  HIGH/MED/LOW  │        ║
-║  │  Uniqueness Contribution Analysis                               │        ║
-║  └──────────────────────────┬───────────────────────────────────── ┘       ║
+║  ┌────────────────────────────────────────────────────────────────┐          ║
+║  │  Weighted QI Scoring  →  Adaptive Risk Score  →  HIGH/MED/LOW  │          ║
+║  │  Uniqueness Contribution Analysis                              │          ║
+║  └──────────────────────────┬─────────────────────────────────────┘          ║
 ║                              ▼                                               ║
 ║  [ ATTACK SIMULATION ENGINE ]                                                ║
-║  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐                   ║
-║  │    Casual    │   │   Insider    │   │   Advanced   │  ← 3 Profiles     ║
-║  │  (1 attr)    │   │ (partial)    │   │  (all attrs) │                   ║
-║  └──────┬───────┘   └──────┬───────┘   └──────┬───────┘                   ║
-║         └──────────────────┼──────────────────┘                             ║
-║                             │   +  Linkage Attack Simulation                ║
+║  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐                      ║
+║  │    Casual    │   │   Insider    │   │   Advanced   │  ← 3 Profiles        ║
+║  │  (1 attr)    │   │ (partial)    │   │  (all attrs) │                      ║
+║  └──────┬───────┘   └──────┬───────┘   └──────┬───────┘                      ║
+║         └──────────────────┼──────────────────┘                              ║
+║                             │   +  Linkage Attack Simulation                 ║
 ║                             ▼                                                ║
 ║  [ PRIVACY MITIGATION ]                                                      ║
-║  ┌────────────────────────────────────────────────────────────────┐        ║
-║  │  Generalization Engine  ·  Suppression Recommender             │        ║
-║  │  Privacy Budget Simulator  ·  SHA-256 Field Protection         │        ║
-║  │  Dataset Integrity Verification                                 │        ║
-║  └──────────────────────────┬───────────────────────────────────── ┘       ║
+║  ┌────────────────────────────────────────────────────────────────┐          ║
+║  │  Generalization Engine  ·  Suppression Recommender             │          ║
+║  │  Privacy Budget Simulator  ·  SHA-256 Field Protection         │          ║
+║  │  Dataset Integrity Verification                                │          ║
+║  └──────────────────────────┬─────────────────────────────────────┘          ║
 ║                              ▼                                               ║
 ║  [ OUTPUT INTERFACES ]                                                       ║
-║  ┌──────────────────┐   ┌──────────────────┐   ┌──────────────────┐       ║
-║  │  📊 CLI Dashboard │   │  📄 TXT Report   │   │  📁 JSON Export  │       ║
-║  │  ANSI Visuals    │   │  Human-Readable  │   │  Full Results    │       ║
-║  └──────────────────┘   └──────────────────┘   └──────────────────┘       ║
+║  ┌──────────────────┐   ┌──────────────────┐   ┌──────────────────┐          ║
+║  │📊 CLI Dashboard │   │  📄 TXT Report   │   │  📁 JSON Export  │          ║
+║  │  ANSI Visuals    │   │  Human-Readable  │   │  Full Results    │          ║
+║  └──────────────────┘   └──────────────────┘   └──────────────────┘          ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 ```
 
@@ -403,7 +403,7 @@ Provided for **research and educational purposes**. See `LICENSE` for full terms
 
 <br/>
 
-[![GitHub](https://img.shields.io/badge/GitHub-srivarshni--k-181717?style=for-the-badge&logo=github)](https://github.com/srivarshni-k)
+[![GitHub](https://img.shields.io/badge/GitHub-srivarshni--k-181717?style=for-the-badge&logo=github)](https://github.com/srivarshni-karthikeyan)
 
 <br/>
 
