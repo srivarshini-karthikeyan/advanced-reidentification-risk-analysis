@@ -1,0 +1,194 @@
+════════════════════════════════════════════════════════════════════════════════
+                          PRIVACY INTELLIGENCE REPORT                           
+                    Advanced Re-identification Risk Analysis                    
+════════════════════════════════════════════════════════════════════════════════
+
+Generated: 2026-01-03 17:58:40
+
+Dataset: patients.csv
+Total Records: 30
+Total Columns: 6
+Quasi-Identifiers: age, gender, zipcode, city
+Sensitive Attribute: diagnosis
+
+Dataset Integrity Hash (SHA-256):
+  30849f417e283867888ed30730a329fac2f0d7bed47c9eb0519163498fac9edb
+
+────────────────────────────────────────────────────────────────────────────────
+EXECUTIVE SUMMARY
+────────────────────────────────────────────────────────────────────────────────
+
+Risk Distribution:
+  HIGH Risk:       10 records ( 33.3%)
+  MEDIUM Risk:     15 records ( 50.0%)
+  LOW Risk:         5 records ( 16.7%)
+
+Adaptive Privacy Risk Score: 0.507
+Risk Level: WARNING
+Assessment: Moderate risk - apply mitigation strategies
+
+────────────────────────────────────────────────────────────────────────────────
+K-ANONYMITY ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+
+k-value: 3
+Total Equivalence Classes: 13
+Violations: 7 (53.8%)
+Average Group Size: 2.31
+Median Group Size: 2.00
+Smallest Group: 1
+Largest Group: 3
+
+────────────────────────────────────────────────────────────────────────────────
+L-DIVERSITY ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+
+l-value: 2
+Total Groups: 13
+Violations: 2 (15.4%)
+Average Diversity: 2.15
+Minimum Diversity: 1
+Maximum Diversity: 3
+
+────────────────────────────────────────────────────────────────────────────────
+T-CLOSENESS ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+
+Threshold: 0.2
+Violations: 13
+Average Distance: 0.4513
+Maximum Distance: 0.7667
+
+────────────────────────────────────────────────────────────────────────────────
+ATTACK SIMULATION RESULTS
+────────────────────────────────────────────────────────────────────────────────
+
+CASUAL Attacker:
+  Description: Knows 1 attribute (public records)
+  Known Attributes: 1
+  Average Success Rate: 36.67%
+  Median Success Rate: 33.33%
+  Maximum Success Rate: 100.00%
+  High-Risk Records: 1
+  Guaranteed Re-identification: 1
+
+INSIDER Attacker:
+  Description: Knows multiple attributes (employee/researcher)
+  Known Attributes: 3
+  Average Success Rate: 43.33%
+  Median Success Rate: 33.33%
+  Maximum Success Rate: 100.00%
+  High-Risk Records: 2
+  Guaranteed Re-identification: 2
+
+ADVANCED Attacker:
+  Description: Knows all quasi-identifiers (sophisticated adversary)
+  Known Attributes: 4
+  Average Success Rate: 43.33%
+  Median Success Rate: 33.33%
+  Maximum Success Rate: 100.00%
+  High-Risk Records: 2
+  Guaranteed Re-identification: 2
+
+────────────────────────────────────────────────────────────────────────────────
+LINKAGE ATTACK SIMULATION
+────────────────────────────────────────────────────────────────────────────────
+
+External Records: 100
+Successful Links: 2 (2.0%)
+Unique Individuals Linked: 1
+Records at Risk: 30
+
+────────────────────────────────────────────────────────────────────────────────
+UNIQUENESS CONTRIBUTION ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+  age: 36.67% (uniqueness ratio)
+  gender: 6.67% (uniqueness ratio)
+  zipcode: 36.67% (uniqueness ratio)
+  city: 30.00% (uniqueness ratio)
+
+────────────────────────────────────────────────────────────────────────────────
+CRYPTOGRAPHIC PROTECTION
+────────────────────────────────────────────────────────────────────────────────
+  Hash Algorithm: SHA-256
+  Protected Fields: patient_id, diagnosis
+  Salt Applied: Yes
+  One-way Protection: Irreversible
+
+────────────────────────────────────────────────────────────────────────────────
+GENERALIZATION ENGINE RESULTS
+────────────────────────────────────────────────────────────────────────────────
+  Violations Before: 7
+  Violations After: 4
+  Improvement: 3 violations eliminated
+  Applied to: age, zipcode
+
+────────────────────────────────────────────────────────────────────────────────
+PRIVACY BUDGET CONFIGURATION
+────────────────────────────────────────────────────────────────────────────────
+  Privacy Level: MEDIUM
+  k-value: 3
+  l-value: 2
+  Strictness Score: 0.33
+  Data Utility Tradeoff: 0.67
+
+────────────────────────────────────────────────────────────────────────────────
+PRIVACY ENHANCEMENT RECOMMENDATIONS
+────────────────────────────────────────────────────────────────────────────────
+
+1. [CRITICAL] K-ANONYMITY
+   Issue: 7 equivalence classes violate k-anonymity (53.8%)
+   Action: Apply generalization to quasi-identifiers (age ranges, ZIP prefix) or suppress outlier records
+
+2. [MEDIUM] L-DIVERSITY
+   Issue: 2 groups lack diversity in sensitive attributes
+   Action: Ensure varied sensitive attribute values within each equivalence class or merge similar groups
+
+3. [MEDIUM] T-CLOSENESS
+   Issue: 13 groups violate t-closeness
+   Action: Balance sensitive attribute distribution to match overall dataset distribution
+
+4. [HIGH] CASUAL-ATTACK-VULNERABILITY
+   Issue: Casual attacker has 36.7% success rate
+   Action: Increase k-value to 6 or apply stronger generalization to counter casual attackers
+
+────────────────────────────────────────────────────────────────────────────────
+HIGH-RISK RECORD WARNINGS
+────────────────────────────────────────────────────────────────────────────────
+
+Record #1: HIGH RISK
+  Risk Score: 0.726
+  Quasi-Identifiers: age=47, gender=M, zipcode=12345, city=Springfield
+  Reason: Rare combination easily identifiable
+  ⚠ Action: Consider suppression or generalization
+
+Record #2: CRITICAL RISK
+  Risk Score: 0.953
+  Quasi-Identifiers: age=52, gender=F, zipcode=12346, city=Shelbyville
+  Reason: Unique combination with extremely high re-identification risk
+  ⚠ Action: Consider suppression or generalization
+
+Record #3: CRITICAL RISK
+  Risk Score: 0.953
+  Quasi-Identifiers: age=56, gender=F, zipcode=12351, city=Cypress Creek
+  Reason: Unique combination with extremely high re-identification risk
+  ⚠ Action: Consider suppression or generalization
+
+Record #4: CRITICAL RISK
+  Risk Score: 0.947
+  Quasi-Identifiers: age=62, gender=M, zipcode=12353, city=Little Pwagmattasquarmsettport
+  Reason: Unique combination with extremely high re-identification risk
+  ⚠ Action: Consider suppression or generalization
+
+Record #5: HIGH RISK
+  Risk Score: 0.785
+  Quasi-Identifiers: age=73, gender=M, zipcode=12354, city=Ogdenville
+  Reason: Rare combination easily identifiable
+  ⚠ Action: Consider suppression or generalization
+
+════════════════════════════════════════════════════════════════════════════════
+END OF REPORT
+════════════════════════════════════════════════════════════════════════════════
+
+Generated by Privacy Intelligence Engine v1.0
+All 26+ Features Active • Comprehensive Analysis Complete
